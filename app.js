@@ -35,19 +35,19 @@ const { Movie } = db.models;
     //sync 'Movies' table
     //deletes an existing table each time you start
     //your app, and recreates it from the model definition
-    await sequelize.sync({ force: true });
+    await db.sequelize.sync({ force: true });
     
     try {
-           Movie.create({
+           const movie = await Movie.create({
             title: "Princess and the Frog"
-        }),
+        });
 
         //New Entry
-            Movie.create({
+            const movie2 = Movie.create({
             title: "Moana"
-        }),
+        });
         //New Entry
-            Movie.create({
+           const movie3 = Movie.create({
             title: "Mulan"
         });
         
