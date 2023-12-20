@@ -41,16 +41,17 @@ const { Movie } = db.models;
            const movie = await Movie.create({
             title: "Princess and the Frog"
         });
-
+        console.log(movie.toJSON());
         //New Entry
-            const movie2 = Movie.create({
+            const movie2 = await Movie.create({
             title: "Moana"
         });
+        console.log(movie2.toJSON());
         //New Entry
-           const movie3 = Movie.create({
+           const movie3 = await Movie.create({
             title: "Mulan"
         });
-        
+        console.log(movie3.toJSON());
     } catch (error) {
         console.error('Error connecting to the database: ', error);
     }
