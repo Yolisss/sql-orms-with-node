@@ -38,7 +38,6 @@ const { Movie } = db.models;
     await sequelize.sync({ force: true });
     
     try {
-        const movieInstances = await Promise.all([
            Movie.create({
             title: "Princess and the Frog"
         }),
@@ -50,11 +49,7 @@ const { Movie } = db.models;
         //New Entry
             Movie.create({
             title: "Mulan"
-        })
-        ]);
-
-        const moviesJSON = movieInstances.map(movie => movie.toJSON());
-        console.log(moviesJSON);
+        });
         
     } catch (error) {
         console.error('Error connecting to the database: ', error);
